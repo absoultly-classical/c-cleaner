@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PyInstaller
+#  Normally these are created by the build process and are not needed in source control
+build/
+dist/
+*.spec
+
+# Environments
+.venv/
+venv/
+ENV/
+
+# IDEs
+.idea/
+.vscode/
+
+# Project specific
+c_drive_cleaner/build/
+c_drive_cleaner/dist/
+c_drive_cleaner/*.spec
