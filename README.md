@@ -3,6 +3,7 @@
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![UI](https://img.shields.io/badge/UI-CustomTkinter-orange.svg)](https://github.com/TomSchimansky/CustomTkinter)
+[![Download EXE](https://img.shields.io/badge/Download-EXE-blue?style=for-the-badge&logo=windows)](https://github.com/absoultly-classical/c-/releases/latest)
 
 一个专为 Windows 打造的现代化、专业级磁盘空间清理工具。基于 Python + CustomTkinter 开发，提供极速扫描、深度清理和极简的交互体验。
 
@@ -49,8 +50,11 @@ python main.py
 如果你想在其他没有 Python 环境的电脑上使用，可以使用 PyInstaller 打包：
 
 ```bash
-pip install pyinstaller
-pyinstaller --noconfirm --onefile --windowed --icon=icon.ico --name="C盘清理大师Pro" --add-data "ui;ui" --add-data "utils;utils" main.py
+# 安装打包工具
+py -m pip install pyinstaller
+
+# 执行打包 (针对 Windows 环境优化)
+py -m PyInstaller --noconfirm --onefile --windowed --icon=icon.ico --name="C盘清理大师Pro" --add-data "ui;ui" --add-data "utils;utils" main.py
 ```
 
 ## � 项目结构
