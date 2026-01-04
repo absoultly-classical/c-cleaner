@@ -106,10 +106,13 @@ CLEANUP_ITEMS = [
     },
     {
         "id": "prefetch",
-        "name": "预读取文件",
-        "description": "Windows 预读取缓存",
-        "paths": [r"C:\Windows\Prefetch"],
-        "extensions": [".pf"],
+        "name": "预读取与着色器缓存",
+        "description": "Windows 预读取文件及 DirectX 着色器缓存",
+        "paths": [
+            r"C:\Windows\Prefetch",
+            os.path.join(LOCALAPPDATA, r"DirectX Shader Cache"),
+        ],
+        "extensions": [".pf", ".bin"],
         "risk": "medium",
         "enabled": False
     },
@@ -155,6 +158,43 @@ CLEANUP_ITEMS = [
         "risk": "high",
         "enabled": False,
         "special": "developer_mode"
+    },
+    {
+        "id": "delivery_optimization",
+        "name": "传递优化文件",
+        "description": "Windows 更新传递优化缓存文件",
+        "paths": [r"C:\Windows\ServiceProfiles\NetworkService\AppData\Local\Microsoft\Windows\DeliveryOptimization\Cache"],
+        "extensions": None,
+        "risk": "medium",
+        "enabled": False
+    },
+    {
+        "id": "software_cache",
+        "name": "常用软件缓存",
+        "description": "网易云音乐、VS Code、钉钉等软件缓存",
+        "paths": [
+            os.path.join(LOCALAPPDATA, r"Netease\CloudMusic\Cache"),
+            os.path.join(os.environ.get('APPDATA', ''), r"Code\Cache"),
+            os.path.join(os.environ.get('APPDATA', ''), r"Code\CachedData"),
+            os.path.join(os.environ.get('APPDATA', ''), r"DingTalk"),
+        ],
+        "extensions": None,
+        "risk": "low",
+        "enabled": True,
+        "pattern": "cache"
+    },
+    {
+        "id": "wechat_qq_cache",
+        "name": "社交软件垃圾",
+        "description": "微信和 QQ 的运行日志及部分缓存文件",
+        "paths": [
+            os.path.join(USERPROFILE, r"Documents\WeChat Files"),
+            os.path.join(USERPROFILE, r"Documents\Tencent Files"),
+        ],
+        "extensions": [".log", ".tmp"],
+        "risk": "medium",
+        "enabled": False,
+        "pattern": "storage"
     },
 ]
 
